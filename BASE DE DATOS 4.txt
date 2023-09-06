@@ -1,0 +1,46 @@
+CREATE TABLE EMPLEADOS(COD INT(15) PRIMARY KEY,NOMBRE VARCHAR (15),SECCION VARCHAR(15),AFP VARCHAR(15)FNAC DATE,EDAD INT(3),FONO INT(10),SEXO VARCHAR(15)
+	)
+create database negocio ;
+1- SELECT nombre,seccion from empleados WHERE seccion = 'contabilidad' or seccion = 'venta' or seccion = 'secretaria';
+2- UPDATE empleados SET seccion = 'ventas' WHERE seccion = 'venta';
+3- SELECT * from empleados where nombre like 'ma%';
+4- SELECT * from empleados where char_length (nombre) = 9 ;
+5- SELECT * from empleados WHERE COD >=80 AND COD <=150 AND SEXO ='FEMENINO' AND SECCION = 'SECRETARIA';
+6- SELECT COD,NOMBRE FROM empleados WHERE(SECCION = 'INFORMATICA' OR SECCION = 'VENTAS') AND (SEXO = 'FEMENINO') AND (EDAD = EDAD <23) AND (AFP = 'HABITAD' OR AFP = 'CUPRUM');
+7-INSERT into empleados (cod,nombre,seccion,afp,fnac,edad,fono,sexo) VALUES (220,'MARIO ALEGRIA','GERENCIA','HABITAD','1993-12-22',29,101010,'MACULINO')
+8- ALTER table empleados add ciudad varchar (12);
+   ALTER TABLE empleados add sueldo int(11);
+9-SELECT * FROM empleados
+  - UPDATE empleados set sueldo = 280000 WHERE seccion = 'secretaria';
+  -UPDATE empleados SET SUELDO = 360000 WHERE SECCION = 'CONTABILIDAD';
+  -UPDATE empleados SET SUELDO = 320000 WHERE SECCION = 'INFORMATICA';
+  -UPDATE empleados SET SUELDO = 205000 WHERE SECCION = 'VENTAS';
+  -UPDATE empleados SET SUELDO = 205000 WHERE SECCION = 'BODEGA';
+  -update empleados set ciudad = 'rancagua' WHERE edad <20;
+  -UPDATE empleados SET CIUDAD = 'RANCAGUA' WHERE EDAD < 20;
+  -UPDATE empleados SET CIUDAD = 'MACHALI'  WHERE EDAD >= 21 AND EDAD <=25;
+  -UPDATE empleados SET CIUDAD = 'GRANEROS' WHERE EDAD >= 26 AND EDAD <=30;
+  -UPDATE empleados SET CIUDAD = 'CODEGUA' WHERE EDAD >= 31 AND EDAD <=40;
+  -UPDATE empleados SET CIUDAD = 'SAN VICENTE' WHERE EDAD >= 41
+  
+10-SELECT min(sueldo) from empleados;
+   SELECT max(sueldo) from empleados;
+   SELECT AVG(sueldo) from empleados;
+   SELECT sum(sueldo) from empleados;
+
+11- SELECT SECCION FROM empleados GROUP BY SECCION;
+12- SELECT COUNT(nombre),ciudad FROM EMPLEADOS GROUP BY ciudad;
+13- update empleados set sueldo = sueldo * 1.03 where edad >30;
+14-SELECT COD, NOMBRE, AFP, FONO FROM empleados WHERE (AFP = 'BANSANDER' OR AFP = 'STA MARIA') AND (SUELDO > 279999)
+   ORDER BY NOMBRE DESC;
+
+15-SELECT * FROM empleados WHERE (EDAD BETWEEN 20 AND 30) AND (CIUDAD = 'MACHALI' OR CIUDAD = 'RANCAGUA') AND (NOMBRE LIKE '%O');
+16-SELECT * FROM empleados WHERE (FNAC BETWEEN '1971-09-01' AND '1981-06-30') AND (CIUDAD = 'CODEGUA');
+17-SELECT 'El total de sueldos es:', sum(sueldo) FROM empleados;
+18- SELECT NOMBRE, year(FNAC) AS AÑO FROM empleados WHERE COD = 140;
+19-SELECT * FROM empleados WHERE day(FNAC) = '06';
+
+20-SELECT COD, NOMBRE, FONO, SEXO, SUELDO, CIUDAD FROM empleados WHERE (COD BETWEEN 10 AND 220) AND (EDAD BETWEEN 20 AND 30) AND (CIUDAD = 'MACHALI' OR     CIUDAD = 'GRANEROS') AND (SEXO = 'MASCULINO') AND (SECCION = 'GERENCIA') AND (NOMBRE LIKE '%M%' AND NOMBRE LIKE '%I%');
+21-DELETE FROM empleados WHERE (NOMBRE LIKE '%Z%') AND (SEXO = 'MASCULINO');
+
+
